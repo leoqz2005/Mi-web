@@ -1,0 +1,43 @@
+CÓMO PERSONALIZAR TU PÁGINA — ROUSS 20 AÑOS
+=============================================
+
+1) FOTO DE ROUSS
+   - Coloca tu imagen PNG dentro de la carpeta "assets" con el nombre:
+       assets/rouss.png
+   - Si quieres usar otro nombre, cámbialo también en index.html, línea:
+       <img src="assets/rouss.png" alt="Rouss" ...>
+
+1.1) IMAGEN DE FONDO DE TODA LA PÁGINA
+   - Coloca tu imagen (jpg o png) dentro de la carpeta "assets" con el nombre:
+       assets/fondo.jpg
+   - Si usas otro nombre o formato (ej. fondo.png), cámbialo en style.css,
+     dentro de la clase ".starfield", en la línea:
+       url('assets/fondo.jpg')
+   - Si no colocas ninguna imagen, la página se ve igual pero con un
+     degradado oscuro de respaldo en vez de tu foto.
+
+2) CANCIÓN DE CUMPLEAÑOS
+   - Coloca tu archivo de audio (mp3) dentro de la carpeta "assets" con el nombre:
+       assets/cancion.mp3
+   - Si usas otro nombre, cámbialo en index.html, línea:
+       <audio id="audio-cumple" src="assets/cancion.mp3" ...>
+
+3) MENSAJE DE LA CARTA (el que aparece al tocar el regalo)
+   - Abre el archivo script.js
+   - Al inicio encontrarás la variable MENSAJE_CARTA, escribe ahí tu texto:
+       const MENSAJE_CARTA = `Tu mensaje aquí...`;
+   - Puedes usar varias líneas, tal como las escribas se mostrarán en la carta.
+
+4) CÓMO FUNCIONA LA INTERACCIÓN
+   1er toque en la torta -> se encienden las 20 velitas y empieza la canción.
+   2do toque             -> la canción se pausa y empieza la cuenta de 20 segundos
+                             para pedir el deseo (sin música).
+   Al llegar a 0          -> las velitas se apagan solas, cae confeti, la torta
+                             se transforma en un regalo y aparecen platos con
+                             torta a los costados.
+   Toque en el regalo     -> se abre la carta con tu mensaje personalizado.
+
+5) CÓMO VERLA
+   - Simplemente abre "index.html" en cualquier navegador (Chrome, Safari, etc.)
+   - También puedes subir toda la carpeta a un hosting gratuito (GitHub Pages,
+     Netlify, Vercel) para compartir el enlace con Rouss.
