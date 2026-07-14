@@ -6,12 +6,20 @@
 // ✍️ EDITA AQUÍ TU MENSAJE PERSONAL PARA LA CARTA
 // Puedes usar saltos de línea normales, se respetan tal cual.
 // ---------------------------------------------------------
-const MENSAJE_CARTA = `Rouss, escribe aquí el mensaje que quieras dedicarle.
-Puedes hablar de lo especial que es, los deseos que tienes
-para sus 20 años, o algún recuerdo bonito que compartan.
+const MENSAJE_CARTA = `Rouss es tu cumpleaños, valoro la oportunidad de poder enviarte un mensaje.
+Aunque no sea un regalo en físico, deseo enviártelo. Tiene bastantes detalles, no es solo un mensaje aburrido que debas leer. 
 
-Solo reemplaza este texto por el tuyo en script.js,
-dentro de la variable MENSAJE_CARTA. ✦`;
+Después de bastante tiempo te hice un regalo. Cuantos inviernos y primaveras pasaron, ya tienes 20. Ya eres docente persigues tus sueños, y me siento muy feliz de que sea así. 
+
+Por esa razón te obsequio mis mejores deseos. Recita versos, canta, baila, escucha tus canciones favoritas. Abraza a las personas que amas, agradece una vez más a Dios y a la vida que te ponen la dirección correcta para que cumplas tus sueños día tras día. 
+
+Una parte mía se siente orgulloso de que hayas mejorado muchísimo.  De que tengas a las personas correctas a tu lado. 
+
+Y la otra parte siente con pesar no estar presente para escucharte y decirte tantas cosas que llevo guardando tanto tiempo. 
+
+Entre varios lugares, horarios y estaciones, decido centrarme en el día de tu cumpleaños, Srta Rouss disfruta de este día con fervor, con inocencia, con alegría, con sosiego, con integridad y compromiso. 
+
+Que Dios te guarde, proteja y guíe tu camino. Feliz cumpleaños Srta. Roussmery`;
 
 const TOTAL_VELAS = 20;
 const SEGUNDOS_DESEO = 20;
@@ -31,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const platoDer           = document.getElementById('plato-der');
   const confetiContenedor  = document.getElementById('confeti-contenedor');
   const cartaOverlay       = document.getElementById('carta-overlay');
+  const cartaScroll        = document.getElementById('carta-scroll');
   const cartaTextoEl       = document.getElementById('carta-texto');
   const cartaCerrar        = document.getElementById('carta-cerrar');
 
@@ -91,8 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function revelarRegalo() {
     torta.classList.add('oculto');
     regaloFinal.classList.add('mostrar');
-    platoIzq.classList.add('mostrar');
-    platoDer.classList.add('mostrar');
+    if (platoIzq) platoIzq.classList.add('mostrar');
+    if (platoDer) platoDer.classList.add('mostrar');
     lanzarConfeti();
   }
 
@@ -153,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
     e.stopPropagation();
     if (estado !== 'granted') return;
     cartaOverlay.hidden = false;
+    // siempre abrir con el scroll al inicio del mensaje
+    if (cartaScroll) cartaScroll.scrollTop = 0;
   });
 
   function cerrarCarta() {

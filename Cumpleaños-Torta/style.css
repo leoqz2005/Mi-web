@@ -972,7 +972,7 @@ main.salon{
 }
 
 /* ============================================================
-   CARTA MODAL
+   CARTA MODAL — con área de mensaje deslizable (scroll)
    ============================================================ */
 .carta-overlay[hidden]{ display:none; }
 
@@ -990,27 +990,64 @@ main.salon{
 }
 @keyframes aparecer-fondo{ from{ opacity:0; } to{ opacity:1; } }
 
+/* .carta ahora es un contenedor de ALTURA LIMITADA (no crece con el texto).
+   El botón de cerrar queda fijo aquí afuera; el mensaje largo vive dentro
+   de .carta-scroll, que sí se desliza (scroll) cuando no cabe entero. */
 .carta{
   position:relative;
   max-width:460px;
   width:100%;
+  max-height:82vh;
   background: var(--crema);
   color:#2c2416;
   border-radius:10px;
-  padding:38px 30px 28px;
-  text-align:center;
   box-shadow:0 30px 60px rgba(0,0,0,.5);
   animation: abrir-carta .45s cubic-bezier(.34,1.56,.64,1);
-  background-image:
-    repeating-linear-gradient(rgba(0,0,0,0) 0 30px, rgba(0,0,0,.03) 30px 31px);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
 }
 @keyframes abrir-carta{
   from{ opacity:0; transform: scale(.8) translateY(30px); }
   to{ opacity:1; transform: scale(1) translateY(0); }
 }
+
+/* contenido deslizable */
+.carta-scroll{
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding:38px 30px 28px;
+  text-align:center;
+  background-image:
+    repeating-linear-gradient(rgba(0,0,0,0) 0 30px, rgba(0,0,0,.03) 30px 31px);
+}
+/* pistas visuales de que hay más contenido para deslizar */
+.carta-scroll::before,
+.carta-scroll::after{
+  content:"";
+  position:sticky;
+  display:block;
+  left:0; right:0;
+  height:22px;
+  pointer-events:none;
+  z-index:1;
+}
+.carta-scroll::before{
+  top:0;
+  margin-bottom:-22px;
+  background:linear-gradient(180deg, var(--crema), rgba(246,240,223,0));
+}
+.carta-scroll::after{
+  bottom:0;
+  margin-top:-22px;
+  background:linear-gradient(0deg, var(--crema), rgba(246,240,223,0));
+}
+
 .carta-sello{
-  position:absolute; top:-22px; left:50%; transform:translateX(-50%);
+  position:relative;
   width:44px;height:44px;
+  margin:0 auto 10px;
   background: var(--rosa-fuerte);
   color:#fff;
   border-radius:50%;
@@ -1030,25 +1067,29 @@ main.salon{
   line-height:1.7;
   white-space:pre-line;
   margin:0 0 18px;
+  text-align:left;
 }
 .carta-firma{
   font-family:'Baloo 2', sans-serif;
   font-weight:600;
   color:var(--morado);
   margin:0;
+  text-align:center;
 }
 .carta-cerrar{
   position:absolute;
   top:10px; right:12px;
-  background:none;
+  background:rgba(0,0,0,.06);
   border:none;
-  font-size:1.1rem;
-  color:#8a7f68;
+  width:32px; height:32px;
+  border-radius:50%;
+  font-size:1.05rem;
+  color:#5a5040;
   cursor:pointer;
   line-height:1;
-  padding:6px;
+  z-index:2;
 }
-.carta-cerrar:hover{ color:#2c2416; }
+.carta-cerrar:hover{ color:#2c2416; background:rgba(0,0,0,.12); }
 
 /* ============================================================
    RESPONSIVE
@@ -1068,6 +1109,8 @@ main.salon{
   .plato{ width:70px; }
   .plato-base{ width:70px; height:20px; }
   #texto-guia{ font-size:.95rem; padding:10px 18px; }
+  .carta{ max-height:88vh; }
+  .carta-scroll{ padding:32px 20px 22px; }
 }
 
 @media (prefers-reduced-motion: reduce){

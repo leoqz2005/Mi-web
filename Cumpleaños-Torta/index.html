@@ -193,11 +193,16 @@
   <div class="carta-overlay" id="carta-overlay" hidden>
     <div class="carta" id="carta">
       <button class="carta-cerrar" id="carta-cerrar" aria-label="Cerrar carta">✕</button>
-      <div class="carta-sello">✦</div>
-      <h2 class="carta-titulo">Para Rouss</h2>
-      <!-- ✍️ EDITA AQUÍ TU MENSAJE PERSONAL, en script.js dentro de la variable MENSAJE_CARTA -->
-      <p class="carta-texto" id="carta-texto"></p>
-      <p class="carta-firma">Con cariño, Leonardo</p>
+      <!-- todo el contenido va dentro de carta-scroll: así el botón de cerrar
+           queda siempre fijo arriba y el mensaje se desliza (scroll) por dentro,
+           en vez de mostrarse todo de golpe y desbordar la pantalla -->
+      <div class="carta-scroll" id="carta-scroll">
+        <div class="carta-sello">✦</div>
+        <h2 class="carta-titulo">Para Rouss</h2>
+        <!-- ✍️ EDITA AQUÍ TU MENSAJE PERSONAL, en script.js dentro de la variable MENSAJE_CARTA -->
+        <p class="carta-texto" id="carta-texto"></p>
+        <p class="carta-firma">Con cariño, Leonardo</p>
+      </div>
     </div>
   </div>
 
