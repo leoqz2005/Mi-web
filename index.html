@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumple Srta ROUSS</title>
+    <!-- Google Fonts con tipografías profesionales, tiernas y románticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;1,300&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600&family=Orbitron:wght@700;900&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <!-- Fondos y Estrellas -->
+        <div class="stars-layer stars-small"></div>
+        <div class="stars-layer stars-medium"></div>
+        <div class="nebula nebula-blue-left"></div>
+        <div class="nebula nebula-pink-right"></div>
+
+        <!-- Luna -->
+        <div class="moon-container">
+            <div class="moon">
+                <img src="luna.jpg" alt="Luna" class="moon-img" onerror="this.style.display='none'">
+            </div>
+        </div>
+
+        <!-- Sistema Solar -->
+        <div class="solar-system" id="solar-system">
+            <div class="orbit orbit-earth"></div>
+            <div class="orbit orbit-mars"></div>
+            <div class="orbit orbit-jupiter"></div>
+            <div class="orbit orbit-saturn"></div>
+
+            <div id="planet-earth" class="planet sticker-earth" title="Tierra"></div>
+            <div id="planet-mars" class="planet sticker-mars" title="Marte"></div>
+            <div id="planet-jupiter" class="planet sticker-jupiter" title="Júpiter"></div>
+            <div id="planet-saturn" class="planet sticker-saturn" title="Saturno"></div>
+
+            <div id="earth-pointer" class="earth-pointer">
+                <div class="pointer-box">
+                    <span class="pointer-dot"></span>
+                    ¡Estamos aquí!
+                </div>
+                <div class="pointer-arrow"></div>
+            </div>
+        </div>
+
+        <!-- Capa de Interfaz Principal (UI) -->
+        <div class="ui-layer">
+            
+                    <!-- TÍTULO TIPOGRÁFICO -->
+        <div class="title-container">
+            <div class="subtitle">✦ Edición Especial ✦</div>
+             <br>
+            <h1 class="main-title">
+                <span class="title-happy">Feliz Cumpleaños</span>
+                <span class="title-name">Srta. Rouss</span>
+            </h1>
+            <div class="age-badge">LEVEL 20 UNLOCKED</div>
+        </div>
+
+            <!-- Menú Central -->
+            <div class="menu-wrapper">
+                <div class="png-character astro-left">
+                    <img src="astro varon.png" alt="Personaje Izquierda" onerror="this.style.display='none'">
+                </div>
+
+                <div class="menu-options">
+                    <!-- Redirección directa por JavaScript nativo al hacer clic -->
+                    <button class="btn-option primary" onclick="window.location.href='miweb-main/index.html'">🚀 Comenzar Recorrido</button>
+                    <button class="btn-option">🎨 Diseños</button>
+                    <button class="btn-option">⚙️ Opciones</button>
+                    <button class="btn-option">❌ Salir</button>
+                </div>
+
+                <div class="png-character astro-right">
+                    <img src="astro mujer.png" alt="Personaje Derecha" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <!-- Control Audio -->
+            <div class="music-control">
+                <button id="music-btn" class="btn-music">🎵 Reproducir Música</button>
+                <audio id="bg-music" src="Oasis - Wonderwall (Official Instrumental)HQ.mp3" loop></audio>
+            </div>
+
+            <div class="footer-text">
+                PRESS START TO PLAY • HAPPY 20TH BIRTHDAY
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
